@@ -1,3 +1,48 @@
+152. Maximum Product Subarray
+
+Given an integer array nums, find a 
+subarray that has the largest product, and return the product.
+
+The test cases are generated so that the answer will fit in a 32-bit integer.
+
+Example 1:
+* Input: nums = [2,3,-2,4]
+* Output: 6
+* Explanation: [2,3] has the largest product 6.
+
+Example 2:
+* Input: nums = [-2,0,-1]
+* Output: 0
+* Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+
+-------------------------------------------------
+#想法
+1.題目要求連續數組的最大乘積
+2.陣列可以包含1個或2個以上的元素。遇到1個可以直接返回，2個或2個以上，使用暴力解或動態規劃。
+
+1.暴力解
+
+int maxProduct(int* nums, int numsSize){
+    int max = INT_MIN;
+    
+    for(int i = 0 ; i < numsSize ; i++)
+    {
+        int curmax = 1;
+        for(int j = i ; j < numsSize ; j++ )
+        {
+            curmax = curmax * nums[j];
+            max = fmax(max , curmax);
+        }
+    }
+
+    return max;
+}
+
+設當前最大值curmax與最大值max，若當前最大值比最大值大，更新最大值max。
+時間複雜度為O(n^2)，會導致時間超過。
+---------------------------------------------------
+2.動態規劃(Dynamic programming)
+
 int maxProduct(int* nums, int numsSize){
     int max = INT_MIN;
     int curmax = 1;
@@ -19,3 +64,6 @@ int maxProduct(int* nums, int numsSize){
 
     return max;
 }
+
+題目會有正負數與0，當陣列的元素有負數，會讓本來的最大值變成了最小值，因此需要考慮當前最大值curmax與當前最小值curmin。
+當出現負數時，需要將我們本來的當前最大值與當前最小值做交換。
