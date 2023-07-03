@@ -30,6 +30,7 @@ Example 3:
 題目告訴我們這是有排序的陣列，經過旋轉，並且題目時間複雜度要控制在O(log n)以下。
 因此可以使用二分搜尋法(Binary Search)。
 
+
 int findMin(int* nums, int numsSize){
     int left = 0;
     int right = numsSize - 1;
@@ -47,3 +48,16 @@ int findMin(int* nums, int numsSize){
 
     return nums[left];
 }
+
+3種情況要辦別：1.    右 2.左      3.  中
+                 中          右   左  
+               左          中          右
+1.最小值在最左邊，右邊界往左收
+2.最小值在中間，右邊界往左收
+3.最小值在最右邊，左邊界往右收
+
+當while迴圈left<right，left<=mid，mid<right。
+因此，在陣列的mid只會大小於right。
+當陣列只有一個元素，左右邊界重合會直接退出循環。
+當大於一個元素，如果left值==mid值>right值，為左邊大、右邊小，left=mid+1，最後left會等於right，left與right都為最小值。
+若left值==mid值<right值，為左邊小、右邊大，right=mid，最後left==right，left、mid、right都為最小值。
