@@ -57,8 +57,8 @@
 **Linked list**
 |   #  |    Title    | Difficulty |
 |:-------------:|-------------| :-----------: |
-| 206 | Reverse Linked List | Easy |
-| 141 | Linked List Cycle | Easy |
+| 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | Easy |
+| 141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/) | Easy |
 | 21 | Merge Two Sorted Lists | Easy |
 | 23 | Merge k Sorted Lists | Hard |
 | 19 | Remove Nth Node From End of List | Medium |
