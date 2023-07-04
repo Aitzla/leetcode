@@ -21,10 +21,13 @@ Input: head = [1], pos = -1
 Output: false
 Explanation: There is no cycle in the linked list.
 ---------------------------------------------------------------
-
+#想法
+題目讓我們找有沒有環狀鏈表的判斷，這種題目可以使用快慢指針。
+1.慢指針只走一步，快指針走兩步，一定會走到兩個一起的時候，此時就能判斷出是否有環形鏈表。
+2.環形鏈表
 
 bool hasCycle(struct ListNode *head) {    
-    if(head == NULL || head -> next == NULL)
+    if(head == NULL || head -> next == NULL) //若頭節點為空或頭節點下一個為空，不為環形鏈表
     {
         return false;
     }
@@ -32,7 +35,7 @@ bool hasCycle(struct ListNode *head) {
     struct ListNode* fast = head -> next;
     while(slow != fast)
     {
-        if(fast == NULL || fast -> next == NULL)
+        if(fast == NULL || fast -> next == NULL) //確保fast下一個節點與下下個節點不為空
         {
             return false;
         }
